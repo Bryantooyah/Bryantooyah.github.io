@@ -1,6 +1,4 @@
-import bcrypt from 'bcryptjs';
 import { closePool, query } from './pool.js';
-import { env } from '../env.js';
 import type { AwardInput, ProjectInput } from '../schemas/index.js';
 
 /**
@@ -150,7 +148,7 @@ and a sync layer would be the first two things I'd add.`,
       'The site you are on. Rebuilt from hand-written HTML into a full-stack TypeScript app with a live API, an admin CMS, and content that still renders when the backend is down.',
     tech: ['TypeScript', 'React', 'Vite', 'Tailwind CSS', 'Express', 'PostgreSQL', 'Vercel'],
     repoUrl: 'https://github.com/Bryantooyah/Bryantooyah.github.io',
-    liveUrl: null,
+    liveUrl: 'https://bryanchua-bay.vercel.app',
     imageUrl: '/images/project-portfolio.webp',
     year: 2025,
     featured: false,
@@ -317,31 +315,12 @@ async function seedAwards(): Promise<void> {
   console.log(`Seeded ${String(awards.length)} awards.`);
 }
 
-async function seedAdmin(): Promise<void> {
-  if (!env.SEED_ADMIN_PASSWORD) {
-    console.log('SEED_ADMIN_PASSWORD not set — skipping admin user.');
-    return;
-  }
-  if (env.SEED_ADMIN_PASSWORD.length < 12) {
-    throw new Error('SEED_ADMIN_PASSWORD must be at least 12 characters');
-  }
-
-  // Cost 12 is the sensible floor for a password that guards write access.
-  const hash = await bcrypt.hash(env.SEED_ADMIN_PASSWORD, 12);
-  await query(
-    `INSERT INTO admin_users (email, password_hash)
-     VALUES ($1, $2)
-     ON CONFLICT (email) DO UPDATE SET password_hash = EXCLUDED.password_hash`,
-    [env.SEED_ADMIN_EMAIL.toLowerCase(), hash],
-  );
-  console.log(`Seeded admin user: ${env.SEED_ADMIN_EMAIL}`);
-}
-
 async function main(): Promise<void> {
   await seedProjects();
   await seedAwards();
-  await seedAdmin();
-  console.log('Seed complete.');
+  // The admin account is deliberately NOT touched here — see seed-admin.ts.
+  // Content is re-seeded routinely; credentials must not ride along with it.
+  console.log('Seed complete. (Admin account unchanged — use `npm run db:seed:admin`.)');
 }
 
 main()

@@ -59,7 +59,7 @@ export const fallbackProjects: Project[] = [
     "sortOrder": 2
   },
   {
-    "id": 8,
+    "id": 3,
     "slug": "portfolio-website",
     "title": "This Portfolio",
     "summary": "The site you are on. Rebuilt from hand-written HTML into a full-stack TypeScript app with a live API, an admin CMS, and content that still renders when the backend is down.",
@@ -74,14 +74,14 @@ export const fallbackProjects: Project[] = [
       "Vercel"
     ],
     "repoUrl": "https://github.com/Bryantooyah/Bryantooyah.github.io",
-    "liveUrl": null,
+    "liveUrl": "https://bryanchua-bay.vercel.app",
     "imageUrl": "/images/project-portfolio.webp",
     "year": 2025,
     "featured": false,
     "sortOrder": 3
   },
   {
-    "id": 3,
+    "id": 4,
     "slug": "shift-patrol-generator",
     "title": "Shift Patrol Generator",
     "summary": "An optimisation algorithm that turns raw officer movement data into constraint-based patrol schedules. Built for the SPF Coding Challenge and took first place.",
@@ -103,7 +103,7 @@ export const fallbackProjects: Project[] = [
 
 export const fallbackAwards: Award[] = [
   {
-    "id": 9,
+    "id": 7,
     "title": "First Place — SPF Coding Challenge",
     "issuer": "Singapore Police Force",
     "year": 2023,
@@ -112,7 +112,7 @@ export const fallbackAwards: Award[] = [
     "sortOrder": 1
   },
   {
-    "id": 10,
+    "id": 8,
     "title": "Finalist — National AI Student Challenge (NAISC)",
     "issuer": "AI Singapore",
     "year": 2025,
@@ -121,7 +121,7 @@ export const fallbackAwards: Award[] = [
     "sortOrder": 2
   },
   {
-    "id": 11,
+    "id": 9,
     "title": "First Runner-Up — BrainHack \"Today I Learned\" AI Hackathon",
     "issuer": "Defence Science and Technology Agency (DSTA)",
     "year": 2021,
@@ -130,7 +130,7 @@ export const fallbackAwards: Award[] = [
     "sortOrder": 3
   },
   {
-    "id": 12,
+    "id": 10,
     "title": "CS50W — Web Programming with Python and JavaScript",
     "issuer": "Harvard University",
     "year": 2026,
@@ -139,7 +139,7 @@ export const fallbackAwards: Award[] = [
     "sortOrder": 4
   },
   {
-    "id": 13,
+    "id": 11,
     "title": "CS50x — Introduction to Computer Science",
     "issuer": "Harvard University",
     "year": 2024,
@@ -148,7 +148,7 @@ export const fallbackAwards: Award[] = [
     "sortOrder": 5
   },
   {
-    "id": 14,
+    "id": 12,
     "title": "JLPT N3 — Japanese-Language Proficiency Test",
     "issuer": "Japan Foundation & JEES",
     "year": 2025,

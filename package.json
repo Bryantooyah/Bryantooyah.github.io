@@ -23,7 +23,8 @@
     "db:apply": "npm run db:apply --workspace server",
     "db:seed": "npm run db:seed --workspace server",
     "images": "node scripts/optimize-images.mjs",
-    "snapshot": "node scripts/snapshot-content.mjs"
+    "snapshot": "node scripts/snapshot-content.mjs",
+    "db:seed:admin": "npm run db:seed:admin --workspace server"
   },
   "devDependencies": {
     "@neon/config": "^1.3.1",
