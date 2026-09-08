@@ -1,0 +1,13 @@
+{
+  "name": "@portfolio/shared",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "types": "./types.ts",
+  "exports": {
+    ".": {
+      "types": "./types.ts",
+      "default": "./types.ts"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# The admin panel is behind authentication, but there is no reason for it to
+# appear in search results either.
+Disallow: /admin
+
+Sitemap: https://bryanchua.com/sitemap.xml

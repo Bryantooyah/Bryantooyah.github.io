@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b0e14" />
+
+    <title>Bryan Chua — Software Engineer</title>
+    <meta
+      name="description"
+      content="CS undergrad at SUTD who loves building full-stack web apps, experimenting with AI, and automating the boring stuff away."
+    />
+    <link rel="canonical" href="https://bryanchua.com/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Bryan Chua" />
+    <meta property="og:title" content="Bryan Chua — Software Engineer" />
+    <meta
+      property="og:description"
+      content="CS undergrad at SUTD who loves building full-stack web apps, experimenting with AI, and automating the boring stuff away."
+    />
+    <meta property="og:url" content="https://bryanchua.com/" />
+    <meta property="og:image" content="https://bryanchua.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Bryan Chua",
+        "url": "https://bryanchua.com",
+        "jobTitle": "Computer Science Undergraduate",
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Singapore University of Technology and Design"
+        },
+        "sameAs": [
+          "https://github.com/Bryantooyah",
+          "https://www.linkedin.com/in/bryan-chua-591221231"
+        ]
+      }
+    </script>
+
+    <!--
+      Applies the saved theme before first paint. Inline and synchronous on
+      purpose: deferring this to React would let the browser paint the default
+      theme first, producing a white flash for dark-mode visitors on every load.
+    -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (stored === 'dark' || (stored === null && prefersDark)) {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (e) {
+          /* Private mode or blocked storage — fall through to the light theme. */
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

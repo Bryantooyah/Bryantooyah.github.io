@@ -1,0 +1,34 @@
+{
+  "name": "bryan-portfolio",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Bryan Chua's portfolio — full-stack TypeScript (React + Vite client, Express + Postgres server)",
+  "workspaces": [
+    "shared",
+    "client",
+    "server"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "concurrently -n client,server -c cyan,magenta \"npm:dev:client\" \"npm:dev:server\"",
+    "dev:client": "npm run dev --workspace client",
+    "dev:server": "npm run dev --workspace server",
+    "build": "npm run build --workspace client",
+    "build:server": "npm run build --workspace server",
+    "lint": "oxlint",
+    "typecheck": "npm run typecheck --workspace client && npm run typecheck --workspace server",
+    "test": "npm run test --workspace client && npm run test --workspace server",
+    "db:apply": "npm run db:apply --workspace server",
+    "db:seed": "npm run db:seed --workspace server",
+    "images": "node scripts/optimize-images.mjs",
+    "snapshot": "node scripts/snapshot-content.mjs"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.5",
+    "oxlint": "^1.16.0",
+    "sharp": "^0.35.4",
+    "typescript": "^7.0.2"
+  }
+}

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bryan Chua — moved to bryanchua.com</title>
+
+    <!--
+      This page keeps bryantooyah.github.io working after the move to Vercel.
+      GitHub Pages is configured to serve from the `main` branch, /docs folder,
+      so this single file is all that is published there.
+
+      Anyone holding an old link — a resume PDF already sent out, a LinkedIn
+      profile, a bookmark — still lands on the right site.
+    -->
+    <link rel="canonical" href="https://bryanchua.com/" />
+    <meta http-equiv="refresh" content="0; url=https://bryanchua.com/" />
+    <meta name="robots" content="noindex" />
+
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: #0b0e14;
+        color: #e8eaf2;
+        font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+        text-align: center;
+        padding: 1.5rem;
+      }
+      a {
+        color: #7c8cff;
+      }
+      p {
+        margin: 0.5rem 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>This site has moved</h1>
+      <p>Bryan Chua's portfolio now lives at <a href="https://bryanchua.com/">bryanchua.com</a>.</p>
+      <p>Redirecting you now…</p>
+    </main>
+    <script>
+      // Belt and braces: the meta refresh handles most cases, but this also
+      // replaces the history entry so Back does not bounce between the two.
+      location.replace('https://bryanchua.com/');
+    </script>
+  </body>
+</html>

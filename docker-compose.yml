@@ -1,0 +1,25 @@
+# Local Postgres for development only. Production uses Neon.
+# Port 5433 on the host so this does not collide with the 50003Project
+# database (which uses the default 5432).
+
+services:
+  db:
+    image: postgres:16
+    container_name: portfolio-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: portfolio
+      POSTGRES_PASSWORD: portfolio
+      POSTGRES_DB: portfolio
+    ports:
+      - "5433:5432"
+    volumes:
+      - portfolio-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U portfolio -d portfolio"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  portfolio-pgdata:
