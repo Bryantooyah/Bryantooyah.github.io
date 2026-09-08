@@ -36,3 +36,4 @@ Thumbs.db
 # shared/ is types-only; any emitted JS here is a stale build artifact.
 /shared/*.js
 /shared/*.js.map
+.neon
