@@ -211,6 +211,118 @@ conflicting with each other, which is where a greedy approach falls over.
 
 First place in the Singapore Police Force Coding Challenge.`,
   },
+  {
+    slug: 'hdb-resale-price-prediction',
+    title: 'HDB Resale Price Prediction',
+    summary:
+      'A linear regression model that predicts Singapore HDB resale prices from floor area, storey, lease age, town, flat type and flat model, with a Random Forest comparison to follow.',
+    tech: ['Python', 'pandas', 'NumPy', 'scikit-learn', 'Matplotlib', 'Seaborn'],
+    repoUrl: 'https://github.com/Bryantooyah/Machine-Learning-Project',
+    liveUrl: null,
+    imageUrl: '/images/project-hdb-ml.webp',
+    year: 2026,
+    featured: false,
+    sortOrder: 5,
+    description: `## The problem
+
+HDB resale flats have no published price list, so a buyer or seller has to work
+out what a flat is worth from comparable sales. The public resale transaction
+dataset, which runs from 2017 onwards, makes that a clean regression problem:
+given what a flat is like, predict what it sold for.
+
+## What I built
+
+The baseline is a linear regression model in Python, built with pandas and
+scikit-learn. The features were chosen from the data rather than from intuition:
+
+- **Numeric inputs** are floor area, storey, year of sale and lease
+  commencement year. The storey range ("10 TO 12") is turned into its midpoint.
+- **Categorical inputs** are town, flat type and flat model, one-hot encoded.
+  Boxplots showed that all three separate the price ranges clearly.
+- **Redundant lease fields** were dropped. Remaining lease, flat age and lease
+  commencement year describe the same thing and are almost perfectly
+  correlated, so only the strongest is kept.
+
+## Comparing with a Random Forest
+
+Linear regression is the baseline, not the end point. A Random Forest on the same
+features is the next step, since a tree-based model can pick up non-linear
+patterns that a straight line misses. The project is also a way to learn the
+basics of the workflow: splitting data, choosing features, measuring error and
+comparing models.
+
+## Evaluation
+
+The data is split 60/20/20 into training, validation and test sets. Errors for the
+linear model are reported as MSE, RMSE, MAE and R² on the training and validation
+sets, with predicted-versus-actual and residual plots to show where it goes wrong.
+
+## A known limit
+
+A linear model adds a fixed amount per feature, so it cannot capture interactions
+between factors, such as a town's premium mattering more for larger flats. That
+limit is why the Random Forest is worth comparing against.`,
+  },
+  {
+    slug: 'todo-fullstack-app',
+    title: 'To-Do Fullstack App',
+    summary:
+      'A to-do app with accounts, due dates, priorities, tags and server-side search, built as a TypeScript monorepo with shared Zod schemas, Express, Prisma and PostgreSQL, tested against a real database and deployed through CI.',
+    tech: [
+      'TypeScript',
+      'React',
+      'Express',
+      'Prisma',
+      'PostgreSQL',
+      'TanStack Query',
+      'Tailwind CSS',
+      'Zod',
+      'Docker',
+      'Render',
+      'Vercel',
+    ],
+    repoUrl: 'https://github.com/Bryantooyah/To-Do-Fullstack-App',
+    liveUrl: 'https://to-do-app-beryl-mu.vercel.app',
+    imageUrl: '/images/project-todo.webp',
+    year: 2026,
+    featured: false,
+    sortOrder: 6,
+    description: `## The problem
+
+A to-do app looks like a small problem, but accounts, ownership, due dates, search
+and undo all have to work together, and the bugs tend to hide in the seams between
+layers rather than in any single feature.
+
+## What it does
+
+Each user has their own tasks, with due dates shown relatively ("Tomorrow", "3 days
+overdue"), priorities and colour-coded tags. Search, filtering and sorting run on the
+server, and the filter state lives in the URL, so a view survives a reload and can be
+shared. Updates are optimistic and roll back with an error toast if the server rejects
+them. Deletes are soft, so undo is a real server-side restore.
+
+## How it's built
+
+A TypeScript monorepo. The main design choice is a shared package of Zod schemas: the
+same object validates an API request body and drives the matching React form, so the
+client and server can't drift apart.
+
+Auth uses short-lived access tokens with rotating refresh tokens. Replaying a spent
+refresh token revokes the whole session family. Passwords are hashed with argon2id,
+and a request for another user's task returns 404 rather than 403, so it doesn't
+reveal that the record exists.
+
+## Testing
+
+66 tests across three layers: unit tests for the query builder, integration tests
+against a real PostgreSQL database rather than a mock, and component tests with MSW.
+CI runs lint, typecheck, the tests and both Docker builds on every push.
+
+## What I'd do next
+
+There's no end-to-end suite and no accessibility audit yet. A scripted Playwright user
+journey comes first, then an axe-core pass.`,
+  },
 ];
 
 const awards: AwardInput[] = [
@@ -263,6 +375,24 @@ const awards: AwardInput[] = [
     description: 'Certified intermediate proficiency in Japanese.',
     imageUrl: '/images/logo-jlpt.webp',
     sortOrder: 6,
+  },
+  {
+    title: 'Finalist — Dell Technologies Innovation Award',
+    issuer: 'Dell Technologies',
+    year: 2026,
+    description:
+      'Recognised for an innovative project that combined cloud-native technologies with real-world problem-solving, judged on technical rigour, creativity and presentation clarity.',
+    imageUrl: '/images/logo-dell.webp',
+    sortOrder: 7,
+  },
+  {
+    title: 'Docker Fundamentals',
+    issuer: 'Dell Technologies',
+    year: 2026,
+    description:
+      'Hands-on Docker fundamentals: containerising applications and using Docker to streamline development, collaboration and deployment.',
+    imageUrl: '/images/logo-docker.webp',
+    sortOrder: 8,
   },
 ];
 

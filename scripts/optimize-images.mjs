@@ -41,6 +41,8 @@ const JOBS = [
   { from: 'savenow.jpg', to: 'project-savenow.webp', width: 1280, height: 1280, fit: 'inside' },
   { from: 'project1.png', to: 'project-shift-patrol.webp', width: 1280, height: 1280, fit: 'inside' },
   { from: 'portfolio.png', to: 'project-portfolio.webp', width: 1280, height: 1280, fit: 'inside' },
+  { from: 'todo-task-list.png', to: 'project-todo.webp', width: 1280, height: 1280, fit: 'inside' },
+  { from: 'project-hdb-ml.png', to: 'project-hdb-ml.webp', width: 1280, height: 1280, fit: 'inside' },
 
   /*
     --- Organisation logos ---
@@ -59,6 +61,8 @@ const JOBS = [
   { from: 'logo-naisc', to: 'logo-naisc.webp', width: 256, height: 256, fit: 'inside' },
   { from: 'logo-harvard', to: 'logo-harvard.webp', width: 256, height: 256, fit: 'inside' },
   { from: 'logo-jlpt', to: 'logo-jlpt.webp', width: 256, height: 256, fit: 'inside' },
+  { from: 'logo-dell', to: 'logo-dell.webp', width: 256, height: 256, fit: 'inside' },
+  { from: 'logo-docker', to: 'logo-docker.webp', width: 256, height: 256, fit: 'inside' },
 ];
 
 /** Extensions tried when a job names a file without one. */
