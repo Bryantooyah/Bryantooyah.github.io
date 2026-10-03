@@ -9,7 +9,7 @@ import type { Award, Project } from '@portfolio/shared';
  * never to make it *work*.
  *
  * GENERATED FILE — do not edit by hand. Regenerate with `npm run snapshot`.
- * Last generated: 2026-09-08
+ * Last generated: 2026-10-03
  */
 
 export const fallbackProjects: Project[] = [
@@ -98,12 +98,59 @@ export const fallbackProjects: Project[] = [
     "year": 2023,
     "featured": false,
     "sortOrder": 4
+  },
+  {
+    "id": 13,
+    "slug": "hdb-resale-price-prediction",
+    "title": "HDB Resale Price Prediction",
+    "summary": "A linear regression model that predicts Singapore HDB resale prices from floor area, storey, lease age, town, flat type and flat model, with a Random Forest comparison to follow.",
+    "description": "## The problem\n\nHDB resale flats have no published price list, so a buyer or seller has to work\nout what a flat is worth from comparable sales. The public resale transaction\ndataset, which runs from 2017 onwards, makes that a clean regression problem:\ngiven what a flat is like, predict what it sold for.\n\n## What I built\n\nThe baseline is a linear regression model in Python, built with pandas and\nscikit-learn. The features were chosen from the data rather than from intuition:\n\n- **Numeric inputs** are floor area, storey, year of sale and lease\n  commencement year. The storey range (\"10 TO 12\") is turned into its midpoint.\n- **Categorical inputs** are town, flat type and flat model, one-hot encoded.\n  Boxplots showed that all three separate the price ranges clearly.\n- **Redundant lease fields** were dropped. Remaining lease, flat age and lease\n  commencement year describe the same thing and are almost perfectly\n  correlated, so only the strongest is kept.\n\n## Comparing with a Random Forest\n\nLinear regression is the baseline, not the end point. A Random Forest on the same\nfeatures is the next step, since a tree-based model can pick up non-linear\npatterns that a straight line misses. The project is also a way to learn the\nbasics of the workflow: splitting data, choosing features, measuring error and\ncomparing models.\n\n## Evaluation\n\nThe data is split 60/20/20 into training, validation and test sets. Errors for the\nlinear model are reported as MSE, RMSE, MAE and R² on the training and validation\nsets, with predicted-versus-actual and residual plots to show where it goes wrong.\n\n## A known limit\n\nA linear model adds a fixed amount per feature, so it cannot capture interactions\nbetween factors, such as a town's premium mattering more for larger flats. That\nlimit is why the Random Forest is worth comparing against.",
+    "tech": [
+      "Python",
+      "pandas",
+      "NumPy",
+      "scikit-learn",
+      "Matplotlib",
+      "Seaborn"
+    ],
+    "repoUrl": "https://github.com/Bryantooyah/Machine-Learning-Project",
+    "liveUrl": null,
+    "imageUrl": "/images/project-hdb-ml.webp",
+    "year": 2026,
+    "featured": false,
+    "sortOrder": 5
+  },
+  {
+    "id": 14,
+    "slug": "todo-fullstack-app",
+    "title": "To-Do Fullstack App",
+    "summary": "A to-do app with accounts, due dates, priorities, tags and server-side search, built as a TypeScript monorepo with shared Zod schemas, Express, Prisma and PostgreSQL, tested against a real database and deployed through CI.",
+    "description": "## The problem\n\nA to-do app looks like a small problem, but accounts, ownership, due dates, search\nand undo all have to work together, and the bugs tend to hide in the seams between\nlayers rather than in any single feature.\n\n## What it does\n\nEach user has their own tasks, with due dates shown relatively (\"Tomorrow\", \"3 days\noverdue\"), priorities and colour-coded tags. Search, filtering and sorting run on the\nserver, and the filter state lives in the URL, so a view survives a reload and can be\nshared. Updates are optimistic and roll back with an error toast if the server rejects\nthem. Deletes are soft, so undo is a real server-side restore.\n\n## How it's built\n\nA TypeScript monorepo. The main design choice is a shared package of Zod schemas: the\nsame object validates an API request body and drives the matching React form, so the\nclient and server can't drift apart.\n\nAuth uses short-lived access tokens with rotating refresh tokens. Replaying a spent\nrefresh token revokes the whole session family. Passwords are hashed with argon2id,\nand a request for another user's task returns 404 rather than 403, so it doesn't\nreveal that the record exists.\n\n## Testing\n\n66 tests across three layers: unit tests for the query builder, integration tests\nagainst a real PostgreSQL database rather than a mock, and component tests with MSW.\nCI runs lint, typecheck, the tests and both Docker builds on every push.\n\n## What I'd do next\n\nThere's no end-to-end suite and no accessibility audit yet. A scripted Playwright user\njourney comes first, then an axe-core pass.",
+    "tech": [
+      "TypeScript",
+      "React",
+      "Express",
+      "Prisma",
+      "PostgreSQL",
+      "TanStack Query",
+      "Tailwind CSS",
+      "Zod",
+      "Docker",
+      "Render",
+      "Vercel"
+    ],
+    "repoUrl": "https://github.com/Bryantooyah/To-Do-Fullstack-App",
+    "liveUrl": "https://to-do-app-beryl-mu.vercel.app",
+    "imageUrl": "/images/project-todo.webp",
+    "year": 2026,
+    "featured": false,
+    "sortOrder": 6
   }
 ];
 
 export const fallbackAwards: Award[] = [
   {
-    "id": 7,
+    "id": 13,
     "title": "First Place — SPF Coding Challenge",
     "issuer": "Singapore Police Force",
     "year": 2023,
@@ -112,7 +159,7 @@ export const fallbackAwards: Award[] = [
     "sortOrder": 1
   },
   {
-    "id": 8,
+    "id": 14,
     "title": "Finalist — National AI Student Challenge (NAISC)",
     "issuer": "AI Singapore",
     "year": 2025,
@@ -121,7 +168,7 @@ export const fallbackAwards: Award[] = [
     "sortOrder": 2
   },
   {
-    "id": 9,
+    "id": 15,
     "title": "First Runner-Up — BrainHack \"Today I Learned\" AI Hackathon",
     "issuer": "Defence Science and Technology Agency (DSTA)",
     "year": 2021,
@@ -130,7 +177,7 @@ export const fallbackAwards: Award[] = [
     "sortOrder": 3
   },
   {
-    "id": 10,
+    "id": 16,
     "title": "CS50W — Web Programming with Python and JavaScript",
     "issuer": "Harvard University",
     "year": 2026,
@@ -139,7 +186,7 @@ export const fallbackAwards: Award[] = [
     "sortOrder": 4
   },
   {
-    "id": 11,
+    "id": 17,
     "title": "CS50x — Introduction to Computer Science",
     "issuer": "Harvard University",
     "year": 2024,
@@ -148,13 +195,31 @@ export const fallbackAwards: Award[] = [
     "sortOrder": 5
   },
   {
-    "id": 12,
+    "id": 18,
     "title": "JLPT N3 — Japanese-Language Proficiency Test",
     "issuer": "Japan Foundation & JEES",
     "year": 2025,
     "description": "Certified intermediate proficiency in Japanese.",
     "imageUrl": "/images/logo-jlpt.webp",
     "sortOrder": 6
+  },
+  {
+    "id": 19,
+    "title": "Finalist — Dell Technologies Innovation Award",
+    "issuer": "Dell Technologies",
+    "year": 2026,
+    "description": "Recognised for an innovative project that combined cloud-native technologies with real-world problem-solving, judged on technical rigour, creativity and presentation clarity.",
+    "imageUrl": "/images/logo-dell.webp",
+    "sortOrder": 7
+  },
+  {
+    "id": 20,
+    "title": "Docker Fundamentals",
+    "issuer": "Dell Technologies",
+    "year": 2026,
+    "description": "Hands-on Docker fundamentals: containerising applications and using Docker to streamline development, collaboration and deployment.",
+    "imageUrl": "/images/logo-docker.webp",
+    "sortOrder": 8
   }
 ];
 
